@@ -8,7 +8,7 @@ export default function Header() {
             <ul className='flex gap-4'>
                 <li className='cursor-pointer hover:text-orange-700 transition duration-200'>Inicio</li>
                 <li className='cursor-pointer hover:text-orange-700 transition duration-200'>Planos</li>
-                <li className='cursor-pointer hover:text-orange-700 transition duration-200'>Contato</li>
+                <li className='cursor-pointer hover:text-orange-700 transition duration-200'>Login</li>
             </ul>
         </nav>
     </header>
