@@ -9,7 +9,7 @@ export default function Membership() {
             {plans.map((plan) => (<div key={plan} className='max-w-[320px] md:max-w-[400px] p-6 flex flex-col gap-4 bg-zinc-900'>
                 <h3 className='text-2xl font-bold'>Teste grátis</h3>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum dignissimos officia animi ex ut ea, labore recusandae omnis quasi, ullam possimus cum commodi? Quibusdam, vero.</p>
-                <ul>
+                <ul className='list-disc ml-4'>
                     <li>Lorem, ipsum dolor.</li>
                     <li>Lorem ipsum dolor sit.</li>
                     <li>Lorem, ipsum dolor.</li>
