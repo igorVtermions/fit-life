@@ -1,6 +1,6 @@
 "use client";
 
-import { SignInButton, SignedIn, SignedOut, useUser } from "@clerk/nextjs";
+import { SignInButton, SignedIn, SignedOut, UserButton, useUser } from "@clerk/nextjs";
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 
@@ -18,13 +18,12 @@ export default function Login() {
   return (
     <div>
       <SignedOut>
-        <SignInButton>
-          <button className="cursor-pointer">
-            Login
-          </button>
+        <SignInButton >
+            <button className="cursor-pointer">login</button> 
         </SignInButton>
       </SignedOut>
       <SignedIn>
+      <UserButton />
       </SignedIn>
     </div>
   );
