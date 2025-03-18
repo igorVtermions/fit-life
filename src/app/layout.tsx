@@ -26,7 +26,7 @@ export default function RootLayout({
 }>) {
   return (
     <ClerkProvider localization={ptBR}>
-      <html lang="en">
+      <html lang="pt-BR">
         <body
           className={`${geistSans.variable} ${geistMono.variable} antialiased max-w-[1280px] mx-auto`}
         >
