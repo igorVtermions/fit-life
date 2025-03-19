@@ -1,0 +1,181 @@
+{
+  "dieta": {
+    "days": [
+      {
+        "day": "domingo",
+        "meals": [
+          {
+            "time": "08:30",
+            "meal": "Café da manhã: Tapioca com queijo coalho e café"
+          },
+          {
+            "time": "11:00",
+            "meal": "Lanche da manhã: Barra de proteína"
+          },
+          {
+            "time": "13:00",
+            "meal": "Almoço: Arroz integral, feijão, frango assado e salada"
+          },
+          {
+            "time": "16:30",
+            "meal": "Lanche da tarde: Iogurte com granola e mel"
+          },
+          {
+            "time": "19:00",
+            "meal": "Jantar: Sopa de frango com legumes"
+          }
+        ]
+      },
+      {
+        "day": "segunda-feira",
+        "meals": [
+          {
+            "time": "07:30",
+            "meal": "Café da manhã: Pão integral com queijo branco e suco de laranja"
+          },
+          {
+            "time": "10:00",
+            "meal": "Lanche da manhã: Iogurte natural com granola"
+          },
+          {
+            "time": "13:00",
+            "meal": "Almoço: Arroz integral, frango grelhado e salada de folhas"
+          },
+          {
+            "time": "16:00",
+            "meal": "Lanche da tarde: Maçã com castanhas"
+          },
+          {
+            "time": "19:00",
+            "meal": "Jantar: Peixe assado com legumes no vapor"
+          }
+        ]
+      },
+      {
+        "day": "terca-feira",
+        "meals": [
+          {
+            "time": "07:30",
+            "meal": "Café da manhã: Vitamina de banana com aveia e mel"
+          },
+          {
+            "time": "10:30",
+            "meal": "Lanche da manhã: Barra de cereal"
+          },
+          {
+            "time": "13:00",
+            "meal": "Almoço: Quinoa, salmão grelhado e brócolis"
+          },
+          {
+            "time": "16:30",
+            "meal": "Lanche da tarde: Abacate com limão e azeite"
+          },
+          {
+            "time": "19:00",
+            "meal": "Jantar: Omelete com espinafre e tomate"
+          }
+        ]
+      },
+      {
+        "day": "quarta-feira",
+        "meals": [
+          {
+            "time": "07:00",
+            "meal": "Café da manhã: Torrada integral com avocado e ovo mexido"
+          },
+          {
+            "time": "10:00",
+            "meal": "Lanche da manhã: Mix de nozes e frutas secas"
+          },
+          {
+            "time": "13:00",
+            "meal": "Almoço: Feijão preto, arroz integral e bife de carne magra"
+          },
+          {
+            "time": "16:00",
+            "meal": "Lanche da tarde: Iogurte com frutas vermelhas"
+          },
+          {
+            "time": "19:30",
+            "meal": "Jantar: Sopa de legumes com frango desfiado"
+          }
+        ]
+      },
+      {
+        "day": "quinta-feira",
+        "meals": [
+          {
+            "time": "07:30",
+            "meal": "Café da manhã: Aveia com leite e morangos"
+          },
+          {
+            "time": "10:00",
+            "meal": "Lanche da manhã: Banana com amendoim"
+          },
+          {
+            "time": "13:00",
+            "meal": "Almoço: Arroz integral, feijão, carne de panela e salada"
+          },
+          {
+            "time": "16:00",
+            "meal": "Lanche da tarde: Bolachinhas de arroz com queijo"
+          },
+          {
+            "time": "19:00",
+            "meal": "Jantar: Peito de frango grelhado com purê de batata doce"
+          }
+        ]
+      },
+      {
+        "day": "sexta-feira",
+        "meals": [
+          {
+            "time": "07:00",
+            "meal": "Café da manhã: Pão integral com peito de peru e café preto"
+          },
+          {
+            "time": "10:00",
+            "meal": "Lanche da manhã: Maçã com manteiga de amendoim"
+          },
+          {
+            "time": "13:00",
+            "meal": "Almoço: Arroz integral, legumes assados e filé de peixe"
+          },
+          {
+            "time": "16:30",
+            "meal": "Lanche da tarde: Iogurte grego com mel"
+          },
+          {
+            "time": "19:00",
+            "meal": "Jantar: Carne moída com abóbora e salada"
+          }
+        ]
+      },
+      {
+        "day": "sábado",
+        "meals": [
+          {
+            "time": "08:00",
+            "meal": "Café da manhã: Panqueca de aveia com mel e morangos"
+          },
+          {
+            "time": "11:00",
+            "meal": "Lanche da manhã: Suco verde com couve e maçã"
+          },
+          {
+            "time": "13:30",
+            "meal": "Almoço: Lasanha de berinjela com carne magra"
+          },
+          {
+            "time": "16:00",
+            "meal": "Lanche da tarde: Mix de frutas com amêndoas"
+          },
+          {
+            "time": "19:00",
+            "meal": "Jantar: Risoto de cogumelos com queijo parmesão"
+          }
+        ]
+      }
+    ]
+  }
+}

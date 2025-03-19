@@ -1,0 +1,114 @@
+{
+    "treino": {
+      "days": [
+        {
+          "day": "segundaFeira",
+          "exercises": [
+            {
+              "exercicio": "Treino A: Peito, Tríceps e Ombro",
+              "exercicios": [
+                "Supino reto",
+                "Supino inclinado",
+                "Crossover",
+                "Tríceps testa",
+                "Tríceps pulley",
+                "Desenvolvimento com barra"
+              ]
+            }
+          ]
+        },
+        {
+          "day": "tercaFeira",
+          "exercises": [
+            {
+              "exercicio": "Treino B: Costas e Bíceps",
+              "exercicios": [
+                "Puxada na frente",
+                "Remada curvada",
+                "Remada unilateral",
+                "Rosca direta",
+                "Rosca martelo",
+                "Puxada no pulley"
+              ]
+            }
+          ]
+        },
+        {
+          "day": "quartaFeira",
+          "exercises": [
+            {
+              "exercicio": "Treino C: Pernas",
+              "exercicios": [
+                "Agachamento livre",
+                "Leg press",
+                "Cadeira extensora",
+                "Cadeira flexora",
+                "Panturrilha no leg press",
+                "Panturrilha em pé"
+              ]
+            }
+          ]
+        },
+        {
+          "day": "quintaFeira",
+          "exercises": [
+            {
+              "exercicio": "Treino A: Peito, Tríceps e Ombro",
+              "exercicios": [
+                "Supino reto",
+                "Supino inclinado",
+                "Crossover",
+                "Tríceps testa",
+                "Tríceps pulley",
+                "Desenvolvimento com barra"
+              ]
+            }
+          ]
+        },
+        {
+          "day": "sextaFeira",
+          "exercises": [
+            {
+              "exercicio": "Treino B: Costas e Bíceps",
+              "exercicios": [
+                "Puxada na frente",
+                "Remada curvada",
+                "Remada unilateral",
+                "Rosca direta",
+                "Rosca martelo",
+                "Puxada no pulley"
+              ]
+            }
+          ]
+        },
+        {
+          "day": "sabado",
+          "exercises": [
+            {
+              "exercicio": "Treino C: Pernas",
+              "exercicios": [
+                "Agachamento livre",
+                "Leg press",
+                "Cadeira extensora",
+                "Cadeira flexora",
+                "Panturrilha no leg press",
+                "Panturrilha em pé"
+              ]
+            }
+          ]
+        },
+        {
+          "day": "domingo",
+          "exercises": [
+            {
+              "exercicio": "Descanso",
+              "exercicios": [
+                "Descanso - Recuperação muscular"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+  
