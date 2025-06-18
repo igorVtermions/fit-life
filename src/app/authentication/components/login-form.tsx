@@ -57,7 +57,7 @@ export default function LoginForm() {
       },
       {
         onSuccess: () => {
-          router.push("/dashboard");
+          router.push("/home");
         },
         onError: () => {
           toast.error("E-mail ou senha inválidos");
