@@ -18,6 +18,10 @@ export default async function Home() {
     redirect("/authentication");
   }
 
+  if (!session?.user?.goal) {
+    redirect("/goal-form");
+  }
+
   const goals = await db.query.usersToGoalsTable.findMany({
     where: eq(usersToGoalsTable.userId, session.user.id),
   });
@@ -29,12 +33,13 @@ export default async function Home() {
   return (
     <>
       <Header />
-      <h1 className="text-2xl">
-        Olá, {session?.user?.name}! Estamos felizes em ver seu comprometimento
-        com essa mudança de vida.
+      <h1 className="px-5 text-2xl">
+        Seja bem vindo(a), {session?.user?.name}!
       </h1>
-      <h2 className="text-zinc-400">Bem vindo ao seu objetivo de Cutting</h2>
-      <section className="mt-20 flex w-full flex-col items-center px-5">
+      <h2 className="px-5 text-zinc-400">
+        Bem vindo ao seu objetivo de {session.user.goal.name}
+      </h2>
+      <section className="mt-10 flex w-full flex-col items-center px-5">
         <Tabs defaultValue="dieta" className="w-full">
           <TabsList className="w-full">
             <TabsTrigger value="dieta">Minha Dieta</TabsTrigger>

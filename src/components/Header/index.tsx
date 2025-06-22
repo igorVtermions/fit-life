@@ -10,6 +10,7 @@ import {
   DropdownMenuTrigger,
 } from "../ui/dropdown-menu";
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
+import { LogOut } from "lucide-react";
 
 export default async function Header() {
   const session = await auth.api.getSession({
@@ -22,26 +23,33 @@ export default async function Header() {
       </h1>
       <nav>
         <ul className="flex gap-4">
-          <li className="cursor-pointer transition duration-200 hover:text-orange-700">
-            Inicio
-          </li>
-          <li className="cursor-pointer transition duration-200 hover:text-orange-700">
-            Planos
-          </li>
+          {!session?.user && (
+            <>
+              <li className="cursor-pointer transition duration-200 hover:text-orange-700">
+                Inicio
+              </li>
+              <li className="cursor-pointer transition duration-200 hover:text-orange-700">
+                Planos
+              </li>
+            </>
+          )}
           {session?.user ? (
             <DropdownMenu>
               <DropdownMenuTrigger>
                 <Avatar className="rounded-lg">
                   <AvatarImage
-                    src="https://github.com/shadcn.png"
-                    alt="@shadcn"
+                    src="https://avatars.githubusercontent.com/u/97698431?v=4"
+                    alt="@Anthonyh30"
                   />
-                  <AvatarFallback>AH</AvatarFallback>
+                  <AvatarFallback>
+                    {session.user.name.slice(0, 1)}
+                  </AvatarFallback>
                 </Avatar>
               </DropdownMenuTrigger>
               <DropdownMenuContent className="bg-black hover:bg-gray-900">
                 <DropdownMenuItem>
-                  <li className="cursor-pointer">
+                  <li className="flex cursor-pointer items-center gap-2">
+                    <LogOut />
                     <SignOutButton
                       variant="link"
                       className="h-fit cursor-pointer p-0 text-white"
