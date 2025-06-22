@@ -84,9 +84,12 @@ export default function SignUpForm() {
               name="name"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Nome</FormLabel>
+                  <FormLabel>Primeiro nome ou apelido</FormLabel>
                   <FormControl>
-                    <Input placeholder="Digite seu nome" {...field} />
+                    <Input
+                      placeholder="Digite seu nome ou apelido"
+                      {...field}
+                    />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
