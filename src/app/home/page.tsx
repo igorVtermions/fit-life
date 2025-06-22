@@ -2,7 +2,10 @@ import Dieta from "@/components/Dieta";
 import Header from "@/components/Header";
 import Treino from "@/components/Treino";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { db } from "@/db";
+import { usersToGoalsTable } from "@/db/schema";
 import { auth } from "@/lib/auth";
+import { eq } from "drizzle-orm";
 import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 
@@ -13,6 +16,14 @@ export default async function Home() {
 
   if (!session?.user) {
     redirect("/authentication");
+  }
+
+  const goals = await db.query.usersToGoalsTable.findMany({
+    where: eq(usersToGoalsTable.userId, session.user.id),
+  });
+
+  if (goals.length === 0) {
+    redirect("/goal-form");
   }
 
   return (

@@ -81,10 +81,10 @@ export const goalsTableRelations = relations(goalsTable, ({ many }) => ({
 export const usersToGoalsTable = pgTable("user_to_goals", {
   userId: text("user_id")
     .notNull()
-    .references(() => usersTable.id),
-  goalsId: uuid("goals_id")
+    .references(() => usersTable.id, { onDelete: "cascade" }),
+  goalId: uuid("goals_id")
     .notNull()
-    .references(() => goalsTable.id),
+    .references(() => goalsTable.id, { onDelete: "cascade" }),
   createdAt: timestamp("created_at").defaultNow().notNull(),
   updatedAt: timestamp("updated_at")
     .defaultNow()
@@ -99,7 +99,7 @@ export const usersToGoalsTableRelations = relations(
       references: [usersTable.id],
     }),
     goal: one(goalsTable, {
-      fields: [usersToGoalsTable.goalsId],
+      fields: [usersToGoalsTable.goalId],
       references: [goalsTable.id],
     }),
   }),
