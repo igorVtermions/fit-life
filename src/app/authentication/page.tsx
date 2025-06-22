@@ -14,7 +14,7 @@ const AuthenticationPage = async () => {
   });
 
   if (session?.user) {
-    redirect("/dashboard");
+    redirect("/home");
   }
   return (
     <div className="flex h-screen w-full items-center justify-center">
