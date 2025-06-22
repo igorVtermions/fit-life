@@ -28,9 +28,9 @@ export default function RootLayout({
     <ClerkProvider localization={ptBR}>
       <html lang="pt-BR">
         <body
-          className={`${geistSans.variable} ${geistMono.variable} antialiased max-w-[1280px] mx-auto`}
+          className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         >
-          {children}
+          <div className="mx-auto max-w-[1280px]">{children}</div>
         </body>
       </html>
     </ClerkProvider>

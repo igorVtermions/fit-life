@@ -3,6 +3,13 @@ import Link from "next/link";
 import { auth } from "@/lib/auth";
 import { headers } from "next/headers";
 import SignOutButton from "../sign-out-button";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "../ui/dropdown-menu";
+import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
 
 export default async function Header() {
   const session = await auth.api.getSession({
@@ -22,12 +29,27 @@ export default async function Header() {
             Planos
           </li>
           {session?.user ? (
-            <li className="cursor-pointer transition duration-200 hover:text-orange-700">
-              <SignOutButton
-                variant="link"
-                className="h-fit cursor-pointer p-0 text-white transition duration-200 hover:text-orange-700"
-              />
-            </li>
+            <DropdownMenu>
+              <DropdownMenuTrigger>
+                <Avatar className="rounded-lg">
+                  <AvatarImage
+                    src="https://github.com/shadcn.png"
+                    alt="@shadcn"
+                  />
+                  <AvatarFallback>AH</AvatarFallback>
+                </Avatar>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent className="bg-black hover:bg-gray-900">
+                <DropdownMenuItem>
+                  <li className="cursor-pointer">
+                    <SignOutButton
+                      variant="link"
+                      className="h-fit cursor-pointer p-0 text-white"
+                    />
+                  </li>
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
           ) : (
             <li className="cursor-pointer transition duration-200 hover:text-orange-700">
               <Link href={"/authentication"}>Login</Link>
