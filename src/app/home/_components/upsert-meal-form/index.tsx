@@ -214,7 +214,7 @@ const UpsertMealForm = ({ onSuccess }: upsertMealFormProps) => {
           />
           <Button
             disabled={upsertMealAction.isPending}
-            className="my-4 h-[50px] w-[170px] cursor-pointer rounded-md bg-orange-700 hover:bg-orange-600"
+            className="my-4 h-[50px] w-full cursor-pointer rounded-md bg-orange-600 hover:bg-orange-700"
           >
             {upsertMealAction.isPending && (
               <Loader2 className="mr-2 h-44 w-4 animate-spin" />
