@@ -37,7 +37,7 @@ export default async function Home() {
         Seja bem vindo(a), {session?.user?.name}!
       </h1>
       <h2 className="px-5 text-zinc-400">
-        Bem vindo ao seu objetivo de {session.user.goal.name}
+        Essa é sua rotina de <strong>{session.user.goal.name}</strong>
       </h2>
       <section className="mt-10 flex w-full flex-col items-center px-5">
         <Tabs defaultValue="dieta" className="w-full">

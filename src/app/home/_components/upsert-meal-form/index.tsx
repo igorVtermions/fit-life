@@ -28,6 +28,11 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 
+import { useAction } from "next-safe-action/hooks";
+import { upsertMeal } from "@/actions/upsert-meal";
+import { toast } from "sonner";
+import { Loader2 } from "lucide-react";
+
 const formSchema = z.object({
   mealName: z
     .string()
@@ -37,7 +42,7 @@ const formSchema = z.object({
   day: z.enum([
     "domingo",
     "segunda",
-    "terça",
+    "terca",
     "quarta",
     "quinta",
     "sexta",
@@ -48,14 +53,18 @@ const formSchema = z.object({
 const days = [
   "domingo",
   "segunda",
-  "terça",
+  "terca",
   "quarta",
   "quinta",
   "sexta",
   "sabado",
 ];
 
-const UpsertMealForm = () => {
+interface upsertMealFormProps {
+  onSuccess?: () => void;
+}
+
+const UpsertMealForm = ({ onSuccess }: upsertMealFormProps) => {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -65,8 +74,18 @@ const UpsertMealForm = () => {
     },
   });
 
+  const upsertMealAction = useAction(upsertMeal, {
+    onSuccess: () => {
+      toast.success("Refeição adicionada com sucesso!");
+      onSuccess?.();
+    },
+    onError: () => {
+      toast.error("Erro ao adicionar refeição");
+    },
+  });
+
   const onSubmit = (values: z.infer<typeof formSchema>) => {
-    console.log(values);
+    upsertMealAction.execute(values);
   };
 
   return (
@@ -108,7 +127,7 @@ const UpsertMealForm = () => {
                   defaultValue={field.value}
                 >
                   <FormControl>
-                    <SelectTrigger className="w-full">
+                    <SelectTrigger className="w-full text-black">
                       <SelectValue placeholder="Selecione um horário" />
                     </SelectTrigger>
                   </FormControl>
@@ -177,8 +196,8 @@ const UpsertMealForm = () => {
                   defaultValue={field.value}
                 >
                   <FormControl>
-                    <SelectTrigger className="w-full text-zinc-500">
-                      <SelectValue placeholder="Selecione uma especialidade" />
+                    <SelectTrigger className="w-full text-black">
+                      <SelectValue placeholder="Selecione um dia da semana" />
                     </SelectTrigger>
                   </FormControl>
                   <SelectContent>
@@ -193,7 +212,13 @@ const UpsertMealForm = () => {
               </FormItem>
             )}
           />
-          <Button className="my-4 h-[50px] w-[170px] cursor-pointer rounded-md bg-orange-700 hover:bg-orange-600">
+          <Button
+            disabled={upsertMealAction.isPending}
+            className="my-4 h-[50px] w-[170px] cursor-pointer rounded-md bg-orange-700 hover:bg-orange-600"
+          >
+            {upsertMealAction.isPending && (
+              <Loader2 className="mr-2 h-44 w-4 animate-spin" />
+            )}
             Adicionar
           </Button>
         </form>
