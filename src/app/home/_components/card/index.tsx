@@ -1,12 +1,39 @@
 "use client";
 import { Button } from "@/components/ui/button";
-import { Dialog, DialogTrigger } from "@/components/ui/dialog";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 import { SquarePen, Trash2 } from "lucide-react";
 import React, { useState } from "react";
 import UpsertMealForm from "../upsert-meal-form";
+import { useAction } from "next-safe-action/hooks";
+import { deleteMeal } from "@/actions/delete-meal";
+import { toast } from "sonner";
+import { mealsTable } from "@/db/schema";
 
 export default function Card({ day, title, meals }: any) {
   const [isUpsertMealDialogOpen, setIsUpsertMealDialogOpen] = useState(false);
+  const [isDeleteDialogOpen, setIsDeleteDialogOpen] = useState(false);
+
+  const deleteMealAction = useAction(deleteMeal, {
+    onSuccess: () => {
+      toast.success("Refeição deletada com sucesso!");
+      setIsDeleteDialogOpen(false);
+    },
+    onError: () => {
+      toast.error("Erro ao deletar refeição. Tente novamente.");
+    },
+  });
+
+  const handleDeleteMealClick = (id: string) => {
+    if (!id) return;
+    deleteMealAction.execute({ id: id });
+  };
+
   return (
     <div className="min-w-[340px] rounded-sm bg-zinc-900 p-2.5">
       <h2 className="mb-4 text-xl font-bold uppercase">{title}</h2>
@@ -36,9 +63,39 @@ export default function Card({ day, title, meals }: any) {
                     onSuccess={() => setIsUpsertMealDialogOpen(false)}
                   />
                 </Dialog>
-                <Button className="cursor-pointer bg-orange-600 hover:bg-orange-700">
-                  <Trash2 />
-                </Button>
+                <Dialog
+                  open={isDeleteDialogOpen}
+                  onOpenChange={setIsDeleteDialogOpen}
+                >
+                  <DialogTrigger asChild>
+                    <Button className="cursor-pointer bg-orange-600 hover:bg-orange-700">
+                      <Trash2 />
+                    </Button>
+                  </DialogTrigger>
+                  <DialogContent>
+                    <DialogTitle className="text-black">
+                      Tem certeza que deseja excluir esta refeição?
+                    </DialogTitle>
+                    <DialogDescription>
+                      Esta ação não pode ser desfeita.
+                    </DialogDescription>
+                    <div className="mt-4 flex justify-end">
+                      <Button
+                        variant="outline"
+                        className="mr-2 cursor-pointer text-black"
+                        onClick={() => setIsDeleteDialogOpen(false)}
+                      >
+                        Cancelar
+                      </Button>
+                      <Button
+                        className="cursor-pointer bg-red-600 hover:bg-red-700"
+                        onClick={() => handleDeleteMealClick(diet.id)}
+                      >
+                        Excluir
+                      </Button>
+                    </div>
+                  </DialogContent>
+                </Dialog>
               </div>
             </li>
           ))}
