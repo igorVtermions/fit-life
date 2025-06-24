@@ -69,6 +69,7 @@ interface upsertMealFormProps {
 
 const UpsertMealForm = ({ meal, onSuccess }: upsertMealFormProps) => {
   const form = useForm<z.infer<typeof formSchema>>({
+    shouldUnregister: true,
     resolver: zodResolver(formSchema),
     defaultValues: {
       id: meal?.id,
@@ -95,9 +96,13 @@ const UpsertMealForm = ({ meal, onSuccess }: upsertMealFormProps) => {
   return (
     <DialogContent>
       <DialogHeader>
-        <DialogTitle className="text-black">Adicione uma refeição</DialogTitle>
+        <DialogTitle className="text-black">
+          {meal ? meal.mealName : "Adicione uma refeição"}
+        </DialogTitle>
         <DialogDescription>
-          Adicione uma nova refeição à sua dieta.
+          {meal
+            ? "Edite os detalhes da refeição"
+            : "Adicione uma nova refeição à sua dieta."}
         </DialogDescription>
       </DialogHeader>
       <Form {...form}>
@@ -223,7 +228,7 @@ const UpsertMealForm = ({ meal, onSuccess }: upsertMealFormProps) => {
             {upsertMealAction.isPending && (
               <Loader2 className="mr-2 h-44 w-4 animate-spin" />
             )}
-            Adicionar
+            {meal ? "Salvar" : "Adicionar"}
           </Button>
         </form>
       </Form>
