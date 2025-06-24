@@ -90,7 +90,11 @@ const UpsertMealForm = ({ meal, onSuccess }: upsertMealFormProps) => {
   });
 
   const onSubmit = (values: z.infer<typeof formSchema>) => {
-    upsertMealAction.execute(values);
+    // Remove id se estiver vazio ou undefined
+    const payload = { ...values };
+    if (!payload.id) delete payload.id;
+    upsertMealAction.execute(payload);
+    console.log(payload);
   };
 
   return (
@@ -107,6 +111,9 @@ const UpsertMealForm = ({ meal, onSuccess }: upsertMealFormProps) => {
       </DialogHeader>
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)}>
+          {/* Campo oculto para garantir que o id seja enviado */}
+          <input type="hidden" {...form.register("id")} />
+
           <FormField
             name="mealName"
             control={form.control}
