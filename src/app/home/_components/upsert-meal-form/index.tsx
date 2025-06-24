@@ -32,8 +32,10 @@ import { useAction } from "next-safe-action/hooks";
 import { upsertMeal } from "@/actions/upsert-meal";
 import { toast } from "sonner";
 import { Loader2 } from "lucide-react";
+import { mealsTable } from "@/db/schema";
 
 const formSchema = z.object({
+  id: z.string().optional(),
   mealName: z
     .string()
     .trim()
@@ -61,16 +63,18 @@ const days = [
 ];
 
 interface upsertMealFormProps {
+  meal?: typeof mealsTable.$inferInsert;
   onSuccess?: () => void;
 }
 
-const UpsertMealForm = ({ onSuccess }: upsertMealFormProps) => {
+const UpsertMealForm = ({ meal, onSuccess }: upsertMealFormProps) => {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      mealName: "",
-      timeToMeal: "",
-      day: "domingo",
+      id: meal?.id,
+      mealName: meal?.mealName ?? "",
+      timeToMeal: meal?.timeToMeal ?? "",
+      day: meal?.day ?? "domingo",
     },
   });
 

@@ -1,11 +1,12 @@
 "use server";
 
 import { db } from "@/db";
-import { upsertMealSchema, UpsertMealSchema } from "./schema";
+import { upsertMealSchema } from "./schema";
 import { mealsTable } from "@/db/schema";
 import { auth } from "@/lib/auth";
 import { headers } from "next/headers";
 import { actionClient } from "@/lib/next-safe-action";
+import { revalidatePath } from "next/cache";
 
 export const upsertMeal = actionClient
   .schema(upsertMealSchema)
@@ -32,4 +33,5 @@ export const upsertMeal = actionClient
           ...parsedInput,
         },
       });
+    revalidatePath("/home");
   });
