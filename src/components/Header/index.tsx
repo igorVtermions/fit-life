@@ -17,7 +17,7 @@ export default async function Header() {
     headers: await headers(),
   });
   return (
-    <header className="flex h-16 items-center justify-between bg-black px-8">
+    <header className="flex h-16 items-center justify-between bg-black px-8 md:px-5">
       <h1 className="text-2xl font-bold">
         <span className="text-orange-700">Fit</span>Life
       </h1>
@@ -38,8 +38,8 @@ export default async function Header() {
               <DropdownMenuTrigger>
                 <Avatar className="rounded-lg">
                   <AvatarImage
-                    src="https://avatars.githubusercontent.com/u/97698431?v=4"
-                    alt="@Anthonyh30"
+                    src="https://github.com/shadcn.png"
+                    alt="User Avatar"
                   />
                   <AvatarFallback>
                     {session.user.name.slice(0, 1)}

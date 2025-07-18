@@ -134,7 +134,7 @@ export const mealsTableRelations = relations(mealsTable, ({ one }) => ({
 
 export const exercisesTable = pgTable("exercises", {
   id: uuid("id").defaultRandom().primaryKey(),
-  exerciseName: text("meal_name").notNull(),
+  exerciseName: text("exercise_name").notNull(),
   day: weekDays("day").notNull(),
   goalId: uuid("goal_id")
     .notNull()
