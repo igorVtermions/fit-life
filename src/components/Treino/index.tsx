@@ -1,23 +1,50 @@
-import React from 'react'
+"use client";
+import React, { useEffect, useState } from "react";
+import AddExerciseButton from "@/app/home/_components/add-exercise-button";
+import CardExercise from "@/app/home/_components/card-exercise";
+// import { fetchExercises } from "./fetch-exercises";
 
-import treino from '../../Data/exercicios.json';
+const weekDays = [
+  "Domingo",
+  "Segunda",
+  "Terca",
+  "Quarta",
+  "Quinta",
+  "Sexta",
+  "Sabado",
+];
 
 export default function Treino() {
+  const [exercises, setExercises] = useState<any[]>([]);
+  const [loading, setLoading] = useState(true);
 
-  const treinoCompleto = treino.treino
+  const loadExercises = () => {
+    setLoading(true);
+    fetch("/api/exercises")
+      .then((res) => res.json())
+      .then((data) => setExercises(data))
+      .finally(() => setLoading(false));
+  };
+
+  useEffect(() => {
+    loadExercises();
+  }, []);
 
   return (
     <section>
-    <button className='bg-orange-700 w-[170px] h-[50px] rounded-md hover:bg-orange-600 cursor-pointer my-8'>Adicionar exercício</button>
-    <div className='w-full flex max-w-[1280px] overflow-auto gap-4'>
-        {treinoCompleto.days.map((treino) => (<div key={treino.day} className='bg-zinc-900 min-w-[340px] p-2.5 rounded-sm'>
-            <h2 className='text-xl font-bold uppercase'>{treino.day}</h2>
-            <p className='mb-5 text-sm text-zinc-400'>{treino.exercises[0].exercicio}</p>
-            <ul className='flex flex-col gap-4'>
-                {treino.exercises[0].exercicios.map((exercise) => (<li key={exercise} className='hover:bg-zinc-800 pl-1 py-1 rounded-sm'>{exercise}</li>))}
-            </ul>
-        </div>))}
-    </div>
+      <AddExerciseButton onSuccess={loadExercises} />
+      <div className="flex w-full max-w-[1280px] gap-4 overflow-auto">
+        {weekDays.map((day) => (
+          <CardExercise
+            key={day}
+            title={day}
+            day={day}
+            exercises={exercises}
+            onSuccess={loadExercises}
+          />
+        ))}
+      </div>
+      {loading && <div className="w-full py-4 text-center">Carregando...</div>}
     </section>
-  )
+  );
 }
