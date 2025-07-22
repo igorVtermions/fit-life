@@ -19,8 +19,8 @@ export default async function Home() {
     redirect("/home");
   }
   return (
-    <>
-      <section>
+    <section className="bg-black text-white">
+      <div className="mx-auto max-w-[1280px]">
         <Header />
         <Banner />
         <InfoBlock
@@ -46,8 +46,8 @@ export default async function Home() {
           }
         />
         <Membership />
-      </section>
+      </div>
       <Footer />
-    </>
+    </section>
   );
 }

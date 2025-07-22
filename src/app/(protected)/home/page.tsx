@@ -1,7 +1,3 @@
-import Dieta from "@/components/Dieta";
-import Header from "@/components/Header";
-import Treino from "@/components/Treino";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { db } from "@/db";
 import { usersToGoalsTable } from "@/db/schema";
 import { auth } from "@/lib/auth";
@@ -32,26 +28,14 @@ export default async function Home() {
 
   return (
     <>
-      <Header />
-      <h1 className="px-5 text-2xl">
-        Seja bem vindo(a), {session?.user?.name}!
+      <h1 className="mt-8 px-5 text-2xl font-semibold">
+        Olá, {session?.user?.name}!
       </h1>
       <h2 className="px-5 text-zinc-400">
         Essa é sua rotina de <strong>{session.user.goal.name}</strong>
       </h2>
       <section className="mt-10 flex w-full flex-col items-center px-5">
-        <Tabs defaultValue="dieta" className="w-full">
-          <TabsList className="w-full">
-            <TabsTrigger value="dieta">Minha Dieta</TabsTrigger>
-            <TabsTrigger value="treino">Meu Treino</TabsTrigger>
-          </TabsList>
-          <TabsContent value="dieta" className="w-full">
-            <Dieta />
-          </TabsContent>
-          <TabsContent value="treino">
-            <Treino />
-          </TabsContent>
-        </Tabs>
+        Content
       </section>
     </>
   );
