@@ -4,6 +4,10 @@ import { auth } from "@/lib/auth";
 import { eq } from "drizzle-orm";
 import { headers } from "next/headers";
 import { redirect } from "next/navigation";
+import HeroMessage from "./_components/hero-message";
+import FeaturedCard from "@/components/featured-card";
+import MealsList from "./_components/meals-list";
+import { CardsList } from "./_components/cards-list";
 
 export default async function Home() {
   const session = await auth.api.getSession({
@@ -28,14 +32,13 @@ export default async function Home() {
 
   return (
     <>
-      <h1 className="mt-8 px-5 text-2xl font-semibold">
-        Olá, {session?.user?.name}!
-      </h1>
-      <h2 className="px-5 text-zinc-400">
-        Essa é sua rotina de <strong>{session.user.goal.name}</strong>
-      </h2>
-      <section className="mt-10 flex w-full flex-col items-center px-5">
-        Content
+      <HeroMessage />
+      <section className="mt-8 flex w-full flex-col items-center px-5">
+        <div className="flex w-full flex-nowrap gap-4 pb-4">
+          <CardsList />
+        </div>
+
+        <MealsList />
       </section>
     </>
   );
