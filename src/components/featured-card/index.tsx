@@ -19,7 +19,7 @@ export default function FeaturedCard({
   return (
     <Link
       href={link}
-      className="relative flex w-full rounded-2xl bg-orange-500 p-4"
+      className="relative flex min-h-[140px] w-full rounded-2xl bg-orange-500 p-4"
     >
       <picture className="w-[160px]">
         <Image
