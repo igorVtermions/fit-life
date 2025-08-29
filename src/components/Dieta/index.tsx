@@ -1,12 +1,12 @@
 import React from "react";
 
-import AddMealButton from "@/app/home/_components/add-meal-button";
+import AddMealButton from "@/app/(protected)/home2/_components/add-meal-button";
 import { headers } from "next/headers";
 import { eq } from "drizzle-orm";
 import { mealsTable } from "@/db/schema";
 import { db } from "@/db";
 import { auth } from "@/lib/auth";
-import Card from "@/app/home/_components/card";
+import Card from "@/app/(protected)/home2/_components/card";
 
 export default async function Dieta() {
   const session = await auth.api.getSession({

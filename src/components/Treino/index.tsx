@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import AddExerciseButton from "@/app/home/_components/add-exercise-button";
-import CardExercise from "@/app/home/_components/card-exercise";
+import AddExerciseButton from "@/app/(protected)/home2/_components/add-exercise-button";
+import CardExercise from "@/app/(protected)/home2/_components/card-exercise";
 // import { fetchExercises } from "./fetch-exercises";
 
 const weekDays = [
