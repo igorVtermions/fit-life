@@ -5,7 +5,6 @@ import { eq } from "drizzle-orm";
 import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 import HeroMessage from "./_components/hero-message";
-import FeaturedCard from "@/components/featured-card";
 import MealsList from "./_components/meals-list";
 import { CardsList } from "./_components/cards-list";
 
