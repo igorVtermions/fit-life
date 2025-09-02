@@ -32,7 +32,7 @@ export default async function Dieta() {
   ];
 
   return (
-    <section>
+    <section className="flex flex-col items-end md:items-start">
       <AddMealButton />
       <div className="flex w-full max-w-[1280px] gap-4 overflow-auto">
         {weekDays.map((day) => (

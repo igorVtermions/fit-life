@@ -49,7 +49,7 @@ export default function CardExercise({
   };
 
   return (
-    <div className="min-w-[340px] rounded-sm bg-zinc-900 p-2.5">
+    <div className="min-w-[340px] rounded-sm bg-zinc-200 p-2.5">
       <h2 className="mb-4 text-xl font-bold uppercase">{title}</h2>
       <ul className="flex flex-col gap-4">
         {exercises
@@ -57,7 +57,7 @@ export default function CardExercise({
           .map((exercise: any) => (
             <li
               key={exercise.id}
-              className="flex items-center justify-between rounded-sm border border-orange-600/20 px-1 py-1 hover:bg-zinc-800"
+              className="flex items-center justify-between rounded-sm border border-orange-600/20 px-1 py-1 hover:bg-zinc-300"
             >
               <span>{exercise.exerciseName}</span>
               <div className="flex gap-2">
@@ -66,7 +66,7 @@ export default function CardExercise({
                   onOpenChange={setIsUpsertExerciseDialogOpen}
                 >
                   <DialogTrigger asChild>
-                    <Button className="cursor-pointer bg-orange-600 hover:bg-orange-700">
+                    <Button className="cursor-pointer bg-zinc-400 hover:bg-zinc-500">
                       <SquarePen />
                     </Button>
                   </DialogTrigger>
@@ -83,7 +83,7 @@ export default function CardExercise({
                   onOpenChange={setIsDeleteDialogOpen}
                 >
                   <DialogTrigger asChild>
-                    <Button className="cursor-pointer bg-orange-600 hover:bg-orange-700">
+                    <Button className="cursor-pointer bg-zinc-400 hover:bg-zinc-500">
                       <Trash2 />
                     </Button>
                   </DialogTrigger>
