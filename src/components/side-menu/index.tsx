@@ -74,15 +74,15 @@ export function SideMenu() {
           className="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground pl-0"
         >
           <div className="bg-sidebar-primary text-sidebar-primary-foreground flex aspect-square size-7 items-center justify-center rounded-lg">
-            <h1 className="text-md font-bold">
+            <span className="text-md font-bold">
               <span className="text-orange-700">F</span>L
-            </h1>
+            </span>
           </div>
           <div className="grid flex-1 text-left text-sm leading-tight">
-            <span className="truncate text-xl font-bold">
+            <h1 className="truncate text-xl font-bold">
               <span className="text-orange-700">Fit</span>Life
-            </span>
-            <span className="truncate text-xs">Seu app fitness</span>
+            </h1>
+            <p className="truncate text-xs">Seu app fitness</p>
           </div>
         </SidebarMenuButton>
       </SidebarHeader>

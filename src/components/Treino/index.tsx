@@ -44,7 +44,6 @@ export default function Treino() {
           />
         ))}
       </div>
-      {loading && <div className="w-full py-4 text-center">Carregando...</div>}
     </section>
   );
 }

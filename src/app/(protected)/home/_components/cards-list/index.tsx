@@ -8,25 +8,20 @@ import FeaturedCard from "@/components/featured-card";
 
 export function CardsList() {
   return (
-    <Carousel className="mt-4 w-full sm:mt-10">
-      <CarouselContent>
-        <CarouselItem className="basis-1/1 sm:basis-1/2">
-          <FeaturedCard
-            link="/exercises"
-            buttonText="Ver treino"
-            imageurl="/woman.png"
-            title="Preparado para o treino de hoje?"
-          />
-        </CarouselItem>
-        <CarouselItem className="basis-1/1 sm:basis-1/2">
-          <FeaturedCard
-            link="/meals"
-            buttonText="Ver dieta"
-            imageurl="/man.png"
-            title="Seguindo a dieta a risca?"
-          />
-        </CarouselItem>
-      </CarouselContent>
-    </Carousel>
+    <div className="mx-auto flex w-full max-w-[1280px] justify-evenly gap-4">
+      <FeaturedCard
+        link="/exercises"
+        buttonText="Ver treino"
+        imageurl="/woman.png"
+        title="Preparado para o treino de hoje?"
+      />
+      <FeaturedCard
+        link="/meals"
+        buttonText="Ver dieta"
+        imageurl="/man.png"
+        title="Seguindo a dieta a risca?"
+        className="hidden lg:flex"
+      />
+    </div>
   );
 }

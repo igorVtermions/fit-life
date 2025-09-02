@@ -8,6 +8,7 @@ interface FeaturedCardProps {
   title: string;
   buttonText: string;
   link: string;
+  className?: string;
 }
 
 export default function FeaturedCard({
@@ -15,11 +16,12 @@ export default function FeaturedCard({
   title,
   buttonText,
   link,
+  className = "",
 }: FeaturedCardProps) {
   return (
     <Link
       href={link}
-      className="relative flex min-h-[140px] w-full rounded-2xl bg-orange-500 p-4"
+      className={`relative flex min-h-[140px] w-full rounded-2xl bg-orange-500 p-4 ${className}`}
     >
       <picture className="w-[160px]">
         <Image
