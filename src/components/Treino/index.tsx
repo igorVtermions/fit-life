@@ -5,13 +5,13 @@ import CardExercise from "@/app/(protected)/home2/_components/card-exercise";
 // import { fetchExercises } from "./fetch-exercises";
 
 const weekDays = [
-  "Domingo",
   "Segunda",
   "Terca",
   "Quarta",
   "Quinta",
   "Sexta",
   "Sabado",
+  "Domingo",
 ];
 
 export default function Treino() {
@@ -31,9 +31,9 @@ export default function Treino() {
   }, []);
 
   return (
-    <section>
+    <section className="w-full">
       <AddExerciseButton onSuccess={loadExercises} />
-      <div className="flex w-full max-w-[1280px] gap-4 overflow-auto">
+      <div className="mx-auto flex w-full max-w-[1280px] gap-4 overflow-auto">
         {weekDays.map((day) => (
           <CardExercise
             key={day}

@@ -128,7 +128,7 @@ export function SideMenu() {
           <SidebarMenuItem>
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <SidebarMenuButton size="lg">
+                <SidebarMenuButton size="lg" className="cursor-pointer">
                   <Avatar>
                     <AvatarImage
                       src="https://github.com/shadcn.png"
@@ -147,7 +147,10 @@ export function SideMenu() {
                 </SidebarMenuButton>
               </DropdownMenuTrigger>
               <DropdownMenuContent>
-                <DropdownMenuItem onClick={handleSignOut}>
+                <DropdownMenuItem
+                  onClick={handleSignOut}
+                  className="cursor-pointer"
+                >
                   <LogOut />
                   Sair
                 </DropdownMenuItem>

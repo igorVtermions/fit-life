@@ -49,7 +49,7 @@ export default function CardExercise({
   };
 
   return (
-    <div className="min-w-[340px] rounded-sm bg-zinc-200 p-2.5">
+    <div className="min-h-[340px] min-w-[340px] rounded-sm bg-zinc-200 p-2.5">
       <h2 className="mb-4 text-xl font-bold uppercase">{title}</h2>
       <ul className="flex flex-col gap-4">
         {exercises
