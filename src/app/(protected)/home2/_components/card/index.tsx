@@ -13,7 +13,20 @@ import UpsertMealForm from "../upsert-meal-form";
 import { useAction } from "next-safe-action/hooks";
 import { deleteMeal } from "@/actions/delete-meal";
 import { toast } from "sonner";
-import { mealsTable } from "@/db/schema";
+interface mealsProps {
+  id: string;
+  goalId: string;
+  mealName: string;
+  timeToMeal: string;
+  day:
+    | "domingo"
+    | "segunda"
+    | "terca"
+    | "quarta"
+    | "quinta"
+    | "sexta"
+    | "sabado";
+}
 
 export default function Card({ day, title, meals }: any) {
   const [isUpsertMealDialogOpen, setIsUpsertMealDialogOpen] = useState(false);
@@ -35,11 +48,14 @@ export default function Card({ day, title, meals }: any) {
   };
 
   return (
-    <div className="min-w-[340px] rounded-sm bg-zinc-200 p-2.5">
+    <div className="min-h-[340px] min-w-[340px] rounded-sm bg-zinc-200 p-2.5">
       <h2 className="mb-4 text-xl font-bold uppercase">{title}</h2>
       <ul className="flex flex-col gap-4">
         {meals
           .filter((meal: any) => meal.day == day.toLowerCase())
+          .sort((a: mealsProps, b: mealsProps) =>
+            a.timeToMeal.localeCompare(b.timeToMeal),
+          )
           .map((diet: any) => (
             <li
               key={diet.id}

@@ -22,19 +22,19 @@ export default async function Dieta() {
   });
 
   const weekDays = [
-    "Domingo",
     "Segunda",
     "Terca",
     "Quarta",
     "Quinta",
     "Sexta",
     "Sabado",
+    "Domingo",
   ];
 
   return (
     <section className="flex flex-col items-end md:items-start">
       <AddMealButton />
-      <div className="flex w-full max-w-[1280px] gap-4 overflow-auto">
+      <div className="mx-auto flex w-full max-w-[1280px] gap-4 overflow-auto">
         {weekDays.map((day) => (
           <Card key={day} title={day} day={day} meals={meals} />
         ))}
